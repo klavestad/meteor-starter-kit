@@ -7,7 +7,14 @@
         </h1>
         <div class="right item">
           <div class="ui massive secondary inverted pointing menu">
-            <a class="active item">Home</a><a class="item">Feature</a><a class="item">Contact</a>
+            <a class="active item">Home</a><a class="item">Feature</a>
+            {{#if currentUser}}
+                <p></p>
+                <p><a href="#" class="item logout">Logout</a></p>
+            {{else}}
+              <a href="/sign-in" class="item">Login</a>
+              <a href="/sign-up" class="item">Register</a>
+            {{/if}}
           </div>
         </div>
       </div>
