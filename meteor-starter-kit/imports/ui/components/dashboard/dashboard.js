@@ -3,6 +3,7 @@ import { FlowRouter } from 'meteor/kadira:flow-router';
 import { MakeChart } from '../../../lib/utilities/chart.js';
 
 import './dashboard.html';
+import '../navigation/navigation.js';
 
 let label = ["test", "test2", "test", "test", "test", "test", "test", "test"];
 let wifidata = [200, 300, 220, 110, 566, 233, 123, 555];

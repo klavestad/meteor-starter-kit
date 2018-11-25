@@ -1,72 +1,48 @@
 <template name="page">
-  <div class="ui inverted vertical center aligned segment">
+  <div id="home">
+
+    {{> navigation}}
+
+    <div class="ui hidden divider"></div>
+    <div class="ui hidden divider"></div>
+    <div class="ui hidden divider"></div>
+
+    <div class="ui aligned center aligned grid">
+      <div class="column">
+        <img id="main-logo" width="100px" src="https://diylogodesigns.com/wp-content/uploads/2016/06/Nasa-Logo-Transparent-Background-download-768x638.png">
+      </div>
+    </div>
+
+    <div class="ui aligned center aligned grid">
+      <div class="column">
+        <h1 class="ui header">Meteor Starter Kit</h1>
+      </div>
+    </div>
+
+    <div class="ui hidden divider"></div>
+
     <div class="ui container">
-      <div class="ui massive borderless inverted menu">
-        <h1 class="header item">
-          <a href="#">MSK</a>
-        </h1>
-        <div class="right item">
-          <div class="ui massive secondary inverted pointing menu">
-            <a class="active item">Home</a><a class="item">Feature</a>
-            {{#if currentUser}}
-                <p></p>
-                <p><a href="#" class="item logout">Logout</a></p>
-            {{else}}
-              <a href="/sign-in" class="item">Login</a>
-              <a href="/sign-up" class="item">Register</a>
-            {{/if}}
+      <div class="center-items">
+        <div class="ui search">
+          <div class="ui fluid icon input">
+            <input class="prompt" type="text" placeholder="Search Website...">
+            <i class="search icon"></i>
           </div>
+          <div class="results"></div>
         </div>
       </div>
     </div>
-    <div class="ui text container">
-      <h1 class="ui inverted header">
-        Meteor Starter Kit.
-      </h1>
-      <p>
-         Nunc ante dolor, finibus sit amet tristique sodales, dictum ac purus. Nam imperdiet sem vel magna lacinia ullamcorper. Nullam feugiat, ante id dignissim ullamcorper, libero sapien malesuada purus, et laoreet purus diam nec diam. Quisque id eleifend sem.
-      </p>
-      <div class="ui massive white button">
-        <a href="https://github.com/klavestad/meteor-starter-kit">Learn more</a>
+
+    <div class="ui hidden divider"></div>
+
+    <div class="ui container">
+      <div class="center-items">
+          <a href="/dashboard" class="ui huge inverted button">Dashboard</a>
       </div>
     </div>
+
+    <div class="ui hidden divider"></div>
+    <div class="ui divider"></div>
+
   </div>
-  <style type="text/css">
-    .ui.inverted.vertical.segment {
-      height: 100vh;
-    }
-    .ui.inverted.vertical.segment h1.header.item {
-      font-size: 2em;
-    }
-    .ui.inverted.vertical.segment a.item {
-      font-size: 1.2em;
-    }
-    .ui.inverted.vertical.segment .ui.text.container {
-      height: 300px;
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      margin: auto;
-    }
-    .ui.inverted.vertical.segment .ui.text.container h1.header {
-      font-size: 3em;
-    }
-    .ui.inverted.vertical.segment .ui.text.container p {
-      font-size: 1.6em;
-      line-height: 1.6;
-    }
-    .ui.inverted.vertical.segment .ui.footer.segment {
-      height: 80px;
-      width: 100%;
-      position: absolute;
-      bottom: 0;
-      font-size: 1.2em;
-      color: gray;
-    }
-    .ui.inverted.vertical.segment .ui.footer.segment a {
-      color: white;
-    }
-  </style>
 </template>

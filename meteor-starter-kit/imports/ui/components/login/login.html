@@ -1,7 +1,7 @@
 <template name="login">
-  <div class="ui center aligned grid">
-    <div class="ui container">
-      <h1 class="ui huge header">Please sign in</h1>
+  <div class="ui middle aligned center aligned grid">
+    <div class="column">
+      <h1 class="ui huge header">Please log in</h1>
       <form class="ui large form">
         <div class="field">
           <div class="ui left icon input">
@@ -13,22 +13,21 @@
             <i class="lock icon"></i><input name="password" placeholder="Password" type="password" />
           </div>
         </div>
-        <div class="field">
-          <div class="ui checkbox">
-            <input class="hidden" tabindex="0" type="checkbox" /><label>Remember me</label>
-          </div>
-        </div>
-        <div class="ui fluid large primary submit button">
+        <div id="loginBtn" class="ui fluid large primary submit button">
           Sign in
         </div>
       </form>
+
+      <div class="ui message">
+        Don't have an account? <a href="/sign-up">Sign Up!</a>
+      </div>
 
       <div id="error-message" class="ui negative message" style="display:none;">
         <i class="close icon"></i>
         <div class="header">
           Login failed!
         </div>
-        <p>Please try again.</p>
+          <p id="error-text">Please try again.</p>
       </div>
 
 
@@ -40,9 +39,8 @@
       background-color: #eee;
     }
 
-    .ui.container {
+    .column {
       margin-top: 6em;
-      max-width: 22em !important;
     }
   </style>
 </template>
