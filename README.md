@@ -18,7 +18,7 @@ choco install meteor
 
 ### Clone Git project
 ```bash
-git clone https://github.com/klavestad/payex-information-tools.git myapp
+git clone https://github.com/klavestad/meteor-starter-kit.git myapp
 cd myapp
 ```
 
