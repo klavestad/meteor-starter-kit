@@ -1,4 +1,5 @@
 import './registration.html';
+import '../navigation/navigation.js';
 
 if (Meteor.isClient) {
   Template.registration.events({
@@ -15,7 +16,15 @@ if (Meteor.isClient) {
 
       Meteor.loginWithPassword(emailVar, passwordVar);
 
-      FlowRouter.go('/');
+      let redirect = Session.get('redirectAfterLogin');
+
+      if (redirect != null) {
+        if (redirect !== '/login') {
+          FlowRouter.go(redirect);
+        }
+      } else {
+        FlowRouter.go('/');
+      }
 
     }
   });

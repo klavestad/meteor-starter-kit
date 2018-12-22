@@ -1,34 +1,48 @@
 import './login.html';
+import '../navigation/navigation.js';
 
 if (Meteor.isClient) {
   Template.login.events({
     'submit form': function(event) {
       event.preventDefault();
 
+      $('#loginBtn').addClass("loading");
+
       var emailVar = event.target.email.value;
       var passwordVar = event.target.password.value;
 
-      Meteor.loginWithPassword(emailVar, passwordVar);
       Meteor.logoutOtherClients();
+      Meteor.loginWithPassword(emailVar, passwordVar);
 
       Accounts.onLogin(function(){
-        var user = this.userId / Meteor.user() / Meteor.user()._id
-        console.log(user)
+        let user = this.userId / Meteor.user() / Meteor.user()._id
+        let redirect = Session.get('redirectAfterLogin');
 
-        FlowRouter.go('/');
+        $('#loginBtn').addClass("loading");
+
+
+        if (redirect != null) {
+          if (redirect !== '/login') {
+            FlowRouter.go(redirect);
+          }
+        } else {
+          FlowRouter.go('/');
+          $('#loginBtn').removeClass("loading");
+        }
+
       });
 
       Accounts.onLoginFailure(function(){
         $('#error-message').css("display", "block");
+        $('#loginBtn').removeClass("loading");
       });
+
 
     }
   });
 }
 
 Template.login.onRendered(function () {
-
-  $('.ui.checkbox').checkbox();
   $('.ui.form').form({
     fields: {
       email: {
