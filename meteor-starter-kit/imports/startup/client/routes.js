@@ -10,6 +10,7 @@ import '../../ui/pages/sign-in/sign-in.js';
 import '../../ui/pages/sign-up/sign-up.js';
 import '../../ui/pages/admin/admin.js';
 import '../../ui/pages/not-found/not-found.js';
+import '../../ui/pages/reset/reset-password.js';
 
 let adminRoutes = FlowRouter.group({
   prefix: '/admin',
@@ -54,6 +55,20 @@ loggedIn.route('/dashboard', {
   action() {
     BlazeLayout.render('App_admin', { main: 'App_admin' });
   },
+});
+
+FlowRouter.route('/change-password', {
+  name: 'forgotpassword',
+  action(){
+    BlazeLayout.render('App_ForgotPassword', { main: 'App_ForgotPassword' });
+  }
+});
+
+FlowRouter.route('/reset-password/:token', {
+  name: 'resetpassword',
+  action(){
+    BlazeLayout.render('App_ResetPassword', { main: 'App_ResetPassword' });
+  }
 });
 
 // Set up all routes in the app

@@ -24,6 +24,8 @@
           </form>
 
           <div class="ui message">
+            Forgot your password? <a href="/change-password">Change it!</a>
+            <br>
             Already have an account? <a href="/sign-in">Sign in!</a>
           </div>
 
@@ -39,12 +41,16 @@
       </div>
     </main>
 
+    <footer>
+      {{> footer}}
+    </footer>
+
     <style type="text/css">
       body {
         background-color: #eee;
       }
 
-      .column {
+      main div .column {
         margin-top: 6em;
       }
     </style>
