@@ -3,13 +3,13 @@
   <div id="nav" class="ui menu">
     <div class="ui container">
       <a class="header item white-text" href="/">
-        <img class="logo" src="https://vignette.wikia.nocookie.net/logopedia/images/e/e2/Coca-Cola_logo_1987.svg/revision/latest?cb=20180204101803">
-        MSK
+        <i class="em em-older_adult"></i>
+        EMH
       </a>
       <div class="right menu">
         {{#if currentUser}}
         <div class="ui inverted inline pointing dropdown link item">
-          <img class="ui avatar image" src="https://cdn.iconscout.com/icon/free/png-256/avatar-372-456324.png">
+          <i class="em em-female-doctor"></i> 
           <span class="text">{{email}}</span>
           <i class="dropdown icon"></i>
           <div class="menu">
@@ -20,8 +20,8 @@
           </div>
         </div>
         {{else}}
-          <a href="/sign-in" class="item">Login</a>
-          <a href="/sign-up" class="item">Register</a>
+        <a href="/sign-in" class="item">Login</a>
+        <a href="/sign-up" class="item">Register</a>
         {{/if}}
       </div>
     </div>

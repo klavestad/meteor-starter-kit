@@ -1,0 +1,27 @@
+<template name="sensor_table">
+
+    <table class="ui celled striped padded table">
+        <thead>
+            <tr>
+                <th class="single line">Sensor</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each sensorStatus}}
+            <tr>
+                <td>
+                    <h2 class="ui center aligned header">{{name}}</h2>
+                </td>
+                <td>
+                    {{#if checkSensorStatus status}}
+                    <h3 class="ui center aligned header"><i class="green check icon"></i></h3>
+                    {{else}}
+                    <h3 class="ui center aligned header"><i class="yellow exclamation triangle icon"></i></h3>
+                    {{/if}}
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</template>

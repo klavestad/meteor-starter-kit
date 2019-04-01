@@ -1,0 +1,61 @@
+<template name="usercard">
+    <a class="card" href="/patient/{{convertUserId _id}}">
+        <div class="image">
+            <img src="{{imgsrc}}">
+        </div>
+        <div class="content">
+            <div class="header">{{name}}</div>
+            <div class="meta">
+                <a>{{age}} years old</a>
+            </div>
+            <div class="description">
+                {{description}}
+            </div>
+        </div>
+        <div class="extra content">
+            <span class="right floated">
+                {{#if checkConnection lastconnected}}
+                    {{#if hasadlcheck adl}}
+                        {{#each adl}}
+                            {{#if adlstatuscheck adl.status}}
+                            <i class="yellow exclamation triangle icon"></i>
+                            {{else}}
+                            <i class="green check icon"></i>
+                            {{/if}}
+                        {{/each}}
+                    {{else}}
+                    {{#if checkError connection}}
+                    <i class="yellow exclamation triangle icon"></i>
+                    {{else}}
+                    <i class="green check icon"></i>
+                    {{/if}}
+                    {{/if}}
+                {{else}}
+                <i class="red x icon icon"></i>
+                {{/if}}
+            </span>
+            <span>
+                <i class="red heartbeat icon"></i>
+                Health Status:
+            </span>
+        </div>
+        <div class="extra content">
+            <span class="right floated">
+                {{#if checkError connection}}
+                <i class="yellow exclamation triangle icon"></i>
+                {{else}}
+                {{#if checkConnection lastconnected}}
+                <i class="green check icon"></i>
+                {{else}}
+                <i class="red x icon icon"></i>
+                {{/if}}
+                {{/if}}
+            </span>
+            <span>
+                <i class="wifi icon"></i>
+                Connection Status:
+            </span>
+        </div>
+
+    </a>
+</template>

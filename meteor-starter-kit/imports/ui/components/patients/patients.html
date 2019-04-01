@@ -1,0 +1,23 @@
+<template name="patients">
+
+    <div class="ui container">
+
+        <div class="ui hidden divider"></div>
+        <h4 class="ui horizontal divider header">
+            <i class="em em-older_adult"></i>
+            Patients Overview
+        </h4>
+        <div class="ui hidden divider"></div>
+
+        <div class="ui link centered doubling cards">
+            {{#each patients}}
+            {{> usercard}}
+            {{/each}}
+        </div>
+
+        <div class="ui hidden divider"></div>
+        <div class="ui divider"></div>
+        <div class="ui hidden divider"></div>
+
+    </div>
+</template>

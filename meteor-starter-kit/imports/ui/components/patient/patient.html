@@ -1,0 +1,68 @@
+<template name="patient">
+
+    <div class="ui container">
+
+        <div class="ui hidden divider"></div>
+        <div class="ui divider"></div>
+        <div class="ui hidden divider"></div>
+
+        <div class="ui stackable centered grid">
+            <div class="three columns centered row">
+                <div class="column">
+                    <h4 class="ui top attached header"><i class="user icon"></i>
+                        <div class="content">Profile</div>
+                    </h4>
+                    <div class="ui attached segment">
+                        <div class="ui link centered doubling cards">
+                            {{#each patient}}
+                            {{> usercard}}
+                            {{/each}}
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <h4 class="ui top attached header"><i class="red heartbeat icon"></i>
+                        <div class="content">Activities of Daily Living Overview</div>
+                    </h4>
+                    <div class="ui attached blurring segment statusSegment">
+                        {{#each patient}}
+                        {{> activity_table}}
+                        {{/each}}
+                        <div class="ui dimmer">
+                            <div class="content">
+                                <h3 class="ui inverted icon header">
+                                    <i class="yellow exclamation triangle icon"></i>
+                                    Connection issues!
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="column">
+                    <h4 class="ui top attached header"><i class="microchip icon"></i>
+                        <div class="content">Sensor Status Overview</div>
+                    </h4>
+                    <div class="ui attached blurring segment statusSegment">
+                        {{#each patient}}
+                        {{> sensor_table}}
+                        {{/each}}
+                        <div class="ui dimmer">
+                            <div class="content">
+                                <h3 class="ui inverted icon header">
+                                    <i class="yellow exclamation triangle icon"></i>
+                                    Connection issues!
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="ui hidden divider"></div>
+        <div class="ui divider"></div>
+        <div class="ui hidden divider"></div>
+
+    </div>
+
+</template>

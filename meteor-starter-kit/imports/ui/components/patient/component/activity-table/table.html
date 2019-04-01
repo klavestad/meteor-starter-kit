@@ -1,0 +1,26 @@
+<template name="activity_table">
+    <table class="ui celled striped padded table">
+        <thead>
+            <tr>
+                <th class="single line">ADL</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each adl}}
+            <tr>
+                <td>
+                    <h2 class="ui center aligned header"> <i class="{{icon}} icon"></i>{{name}}</h2>
+                </td>
+                <td>
+                    {{#if healthstatus status}}
+                    <h3 class="ui center aligned header"><i class="green check icon"></i></h3>
+                    {{else}}
+                    <h3 class="ui center aligned header"><i class="yellow exclamation triangle icon"></i></h3>
+                    {{/if}}
+                </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+</template>

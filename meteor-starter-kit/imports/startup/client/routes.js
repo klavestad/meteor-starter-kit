@@ -12,6 +12,10 @@ import '../../ui/pages/admin/admin.js';
 import '../../ui/pages/not-found/not-found.js';
 import '../../ui/pages/reset/reset-password.js';
 
+import '../../ui/pages/patients/patients';
+import '../../ui/pages/patient-page/patient-page';
+
+
 let adminRoutes = FlowRouter.group({
   prefix: '/admin',
   name: 'admin-group',
@@ -54,6 +58,24 @@ loggedIn.route('/dashboard', {
   name: 'App.admin',
   action() {
     BlazeLayout.render('App_admin', { main: 'App_admin' });
+  },
+});
+
+loggedIn.route('/patients', {
+  name: 'App.patients',
+  action() {
+    BlazeLayout.render('App_patients', {
+      main: 'App_patients'
+    });
+  },
+});
+
+loggedIn.route('/patient/:id', {
+  name: 'App.patient',
+  action() {
+    BlazeLayout.render('App_patient_page', {
+      main: 'App_patient_page'
+    });
   },
 });
 
