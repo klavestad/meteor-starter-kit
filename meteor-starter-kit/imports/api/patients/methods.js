@@ -27,7 +27,7 @@ Meteor.methods({
         });
     },
     'activity.update'(id, activity, status, icon) {
-        check(id, Number);
+        check(id, String);
         check(activity, String);
         check(icon, String);
 
