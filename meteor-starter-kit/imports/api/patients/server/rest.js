@@ -13,6 +13,7 @@ var POST = Picker.filter(function (request, response) {
 POST.route('/ping', function (params, request, response, next) {
 
     const body = request.body;
+    console.log(body);
     let sensors = []
 
     Object.keys(body.sensorStatus).forEach(function (key) {

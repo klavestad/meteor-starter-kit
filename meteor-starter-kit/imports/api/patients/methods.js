@@ -16,11 +16,8 @@ Meteor.methods({
         check(status, String);
         check(sensorStatus, Array);
     
-        let newMongoObjectId = new Meteor.Collection.ObjectID();
-        newMongoObjectId._str = id;
-
         return Patients.update({
-            _id: newMongoObjectId
+            id: id
         }, {
             $set: {
                 sensors: sensorStatus,
@@ -30,15 +27,12 @@ Meteor.methods({
         });
     },
     'activity.update'(id, activity, status, icon) {
-        check(id, String);
+        check(id, Number);
         check(activity, String);
         check(icon, String);
 
-        let newMongoObjectId = new Meteor.Collection.ObjectID();
-        newMongoObjectId._str = id;
-
         return Patients.update({
-            _id: newMongoObjectId
+            id: id
         }, {
             $addToSet: {
                 adl: {

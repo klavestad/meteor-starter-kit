@@ -20,11 +20,8 @@ Template.patient.onRendered(function () {
 
         var userid = FlowRouter.getParam("id");
 
-        let newMongoObjectId = new Meteor.Collection.ObjectID();
-        newMongoObjectId._str = userid;
-
         let data = await Patients.find({
-            _id: newMongoObjectId
+            id: userid
         }).fetch();
 
         try {
@@ -45,12 +42,10 @@ Template.patient.onRendered(function () {
 Template.patient.helpers({
     patient() {
         var userid = FlowRouter.getParam("id");
-
-        let newMongoObjectId = new Meteor.Collection.ObjectID();
-        newMongoObjectId._str = userid;
+        console.log(userid);
 
         let cursor = Patients.find({
-            _id: newMongoObjectId
+            id: userid
         });
 
         return cursor;

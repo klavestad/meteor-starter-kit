@@ -13,11 +13,9 @@ Meteor.publish('patients.all', function () {
 
 Meteor.publish('patient.find', function (id) {
     console.log("Searching for: ", id);
-    let newMongoObjectId = new Meteor.Collection.ObjectID();
-    newMongoObjectId._str = id;
 
     let cursor = Patients.find({
-        _id: newMongoObjectId
+        id: id
     });
     
     return cursor
