@@ -9,6 +9,7 @@ Meteor.startup(() => {
   // if the Links collection is empty
   if (Patients.find().count() === 0) {
     const data = [{
+        id: 1001,
         name: 'Sindre Klavestad',
         age: '79',
         address: "Christian Kroghs Gate 32, 0186 Oslo",
@@ -21,6 +22,7 @@ Meteor.startup(() => {
         sensors: []
       },
       {
+        id: 1002,
         name: 'Ola Nordmann',
         age: '84',
         address: "Christian Kroghs Gate 32, 0186 Oslo",
@@ -33,6 +35,7 @@ Meteor.startup(() => {
         sensors: []
       },
       {
+        id: 1003,
         name: 'Kari Nordmann',
         age: '86',
         address: "Christian Kroghs Gate 32, 0186 Oslo",
