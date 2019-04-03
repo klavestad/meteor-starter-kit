@@ -13,9 +13,16 @@ var POST = Picker.filter(function (request, response) {
 POST.route('/ping', function (params, request, response, next) {
 
     const body = request.body;
-    console.log(body)
+    let sensors = []
 
-    Meteor.call('patient.ping', body.id, body.status, function (err, data) {
+    Object.keys(body.sensorStatus).forEach(function (key) {
+        sensors.push({
+            name: key,
+            status: body.sensorStatus[key]
+        });
+    });
+
+    Meteor.call('patient.ping', body.id, body.status, sensors, function (err, data) {
         if (err) {
             response.setHeader('Content-Type', 'application/json');
             response.statusCode = 404;
@@ -32,21 +39,20 @@ POST.route('/ping', function (params, request, response, next) {
 POST.route('/update', function (params, request, response, next) {
 
     const body = request.body;
-    console.log(data.body)
     const icons = {
         Sleeping: "bed",
         Cooking: "fire",
         Showering: "bath",
         Toilet: "tint",
-        Eating: "utensil",
+        Eating: "utensils",
         Mobility: "streat view"
     }
 
-    Meteor.call('activity.update', body.id, body.activity, body.status, icons[body.activity], function (err, data) {
+    Meteor.call('activity.update', body.id, body.activity, body.status, icons[body.activity] ? icons[body.activity] : 'file', function (err, data) {
         if (err) {
             console.log(err.error);
         } else {
-            console.log(data);
+            console.log("Success: ", data);
         }
     });
 

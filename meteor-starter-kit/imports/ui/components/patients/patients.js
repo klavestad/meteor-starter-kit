@@ -16,7 +16,6 @@ Template.patients.helpers({
 });
 
 Template.registerHelper('healthstatus', function (status) {
-    console.log("Health status: ", status, status === "ok")
     return status === "ok";
 });
 
@@ -33,7 +32,7 @@ Template.registerHelper('hasadlcheck', function (adl) {
 });
 
 Template.registerHelper('adlstatuscheck', function (status) {
-    return status === 'error'
+    return status != 'ok'
 });
 
 Template.registerHelper('checkError', function (connectionstatus) {

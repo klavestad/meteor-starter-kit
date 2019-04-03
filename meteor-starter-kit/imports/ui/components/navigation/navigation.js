@@ -6,7 +6,7 @@ Template.navigation.onRendered(function () {
 
 Template.navigation.helpers({
   email() {
-    if(Meteor.user()){
+    if (Meteor.user()) {
       return Meteor.user().emails[0].address;
     }
   },

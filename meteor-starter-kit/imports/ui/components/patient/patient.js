@@ -28,7 +28,6 @@ Template.patient.onRendered(function () {
         }).fetch();
 
         try {
-            console.log(data[0].lastconnected)
             if (moment(data[0].lastconnected).isAfter(moment().subtract(1, 'minute'))) {
                 $('.statusSegment').dimmer('hide');
             } else {
