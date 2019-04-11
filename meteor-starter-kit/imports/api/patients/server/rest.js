@@ -6,6 +6,31 @@ Picker.middleware(bodyParser.urlencoded({
     extended: false
 }));
 
+var GET = Picker.filter(function (request, response) {
+    return request.method == "GET";
+});
+
+GET.route('/reset', function (params, request, response, next) {
+    const body = request.body;
+    const id = params.query.id;
+
+    console.log(body);
+    console.log(params);
+
+    Meteor.call('activity.reset', id, function (err, data) {
+        if (err) {
+            response.setHeader('Content-Type', 'application/json');
+            response.statusCode = 404;
+            response.end("Something went wrong!!");
+        } else {
+            response.setHeader('Content-Type', 'application/json');
+            response.statusCode = 200;
+            response.end("OK!");
+        }
+    });
+
+});
+
 var POST = Picker.filter(function (request, response) {
     return request.method == "POST";
 });

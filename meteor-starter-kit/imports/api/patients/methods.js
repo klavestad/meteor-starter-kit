@@ -15,7 +15,7 @@ Meteor.methods({
         check(id, String);
         check(status, String);
         check(sensorStatus, Array);
-    
+
         return Patients.update({
             id: id
         }, {
@@ -47,16 +47,31 @@ Meteor.methods({
         });
 
     },
-    'sensorstatus.get'(url){
+    'activity.reset'(id) {
+        check(id, String);
+
+        let emptyarr = [];
+
+        return Patients.update({
+            id: id
+        }, {
+            $set: {
+                adl: emptyarr,
+                sensors: emptyarr
+            }
+        });
+
+    },
+    'sensorstatus.get'(url) {
         check(url, String);
 
-        HTTP.get(url, function(error, result) { 
-            if (error) { 
-                console.log('error', error); 
-            } 
-            if (result) { 
-                 
-            } 
+        HTTP.get(url, function (error, result) {
+            if (error) {
+                console.log('error', error);
+            }
+            if (result) {
+
+            }
         });
 
     }
